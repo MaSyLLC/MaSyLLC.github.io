@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaSyLLC - Computer Sales & Repair</title>
+    <title>MaSyLLC - Full-Service Tech Solutions</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -20,8 +20,8 @@
         .content-box {
             max-width: 960px;
             margin: 40px auto;
-            padding: 20px 40px;
-            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px 40px 40px; /* More padding at bottom */
+            background-color: rgba(255, 255, 255, 0.97); /* Slightly more opaque */
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -37,33 +37,54 @@
             color: #444;
             border-bottom: 2px solid #eee;
             padding-bottom: 5px;
-            margin-top: 30px;
+            margin-top: 40px; /* More space between sections */
         }
         
         .services-list {
-            list-style-type: disc;
+            list-style-type: '✔'; /* A nicer checkmark bullet */
             padding-left: 20px;
         }
         .services-list li {
             margin-bottom: 10px;
+            padding-left: 10px;
         }
 
-        .contact-link {
+        /* --- STYLES FOR BUTTONS --- */
+        .button {
             display: inline-block;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             color: #fff;
-            background-color: #0366d6;
-            padding: 12px 20px;
+            padding: 14px 22px;
             border-radius: 5px;
             text-decoration: none;
-            transition: background-color 0.2s;
-            margin-top: 20px;
+            transition: all 0.2s;
+            margin-top: 15px;
+            text-align: center;
         }
-        .contact-link:hover {
-            background-color: #0056b3;
+        .button:hover {
+            transform: translateY(-2px); /* A slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
+        /* Blue button for general contact */
+        .contact-link-general {
+            background-color: #0366d6;
+        }
+        .contact-link-general:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Green button for "Sell Now" - stands out! */
+        .contact-link-sell {
+            background-color: #28a745; /* A friendly, "go" green */
+            font-size: 1.3em; /* Bigger! */
+        }
+        .contact-link-sell:hover {
+            background-color: #218838;
+        }
+        
+        /* --- Styles for the gallery (unchanged) --- */
         .image-gallery {
             display: flex;
             flex-wrap: wrap;
@@ -74,13 +95,8 @@
         }
         .gallery-item {
             flex: 1;
-            min-width: 280px; /* Min width before wrapping */
-            
-            /* * --- CSS CHANGE HERE --- 
-             * Changed max-width to 31% so three can fit side-by-side.
-             */
-            max-width: 31%; 
-
+            min-width: 280px;
+            max-width: 31%;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
@@ -96,8 +112,7 @@
             font-size: 0.9em;
             color: #555;
             background-color: #f9f9f9;
-            margin: 0;
-            text-align: center; /* Center the text */
+            text-align: center;
         }
     </style>
 </head>
@@ -106,21 +121,18 @@
     <div class="content-box">
 
         <h1>Welcome to MaSyLLC</h1>
+        <p style="text-align: center; font-size: 1.2em; margin-top: -20px; color: #555;">Your Partner in Tech Solutions & IT Asset Lifecycle</p>
         
-        <p>We are currently building our new website. Please check back soon!</p>
         
-        <h2>Your Local Experts in Computer Sales & Repair</h2>
-        
-        <p>We specialize in everything you need to stay connected and productive. Our services include:</p>
-        
+        <h2>Our Services</h2>
+        <p>We handle the complete lifecycle of tech assets. Whether you're upgrading, repairing, or selling, we provide expert, reliable service.</p>
         <ul class="services-list">
-            <li>Buying and selling new & refurbished desktop and laptop computers.</li>
-            <li>Professional hardware repair and component-level diagnostics.</li>
-            <li>Virus removal, software optimization, and data recovery.</li>
+            <li><b>Purchasing:</b> We buy used laptops, desktops, and bulk IT assets.</li>
+            <li><b>Refurbishment & Repair:</b> Our expert technicians diagnose, repair, and certify devices.</li>
+            <li><b>Sales:</b> Shop our selection of high-quality, certified refurbished computers.</li>
+            <li><b>Data Services:</b> Secure data removal, optimization, and recovery.</li>
         </ul>
-
-        <h2>A Glimpse of Our Work</h2>
-
+        
         <div class="image-gallery">
             <div class="gallery-item">
                 <img src="construction-workers.jpg" alt="Miniature workers repairing a circuit board.">
@@ -130,20 +142,29 @@
                 <img src="laptops.jpg" alt="Person typing on a laptop with another laptop nearby.">
                 <p>Quality Sales</p>
             </div>
-            
             <div class="gallery-item">
                 <img src="keyboard.jpg" alt="A glowing blue keyboard.">
                 <p>Modern Components</p>
             </div>
-            
         </div>
 
-        <p>For inquiries, quotes, or service requests, please contact us:</p>
         
-        <a href="mailto:your-email@MaSyLLC.com" class="contact-link">
-            Click here to send us an email
+        <h2>Got Old Tech? Get Fast Cash.</h2>
+        <p>Tired of the hassle and low-ball offers on online marketplaces? We make selling your laptop simple and fast.</p>
+        <p>We offer fair, competitive prices for your used laptops, desktops, and other electronics. Get a fast, no-obligation quote and turn your old devices into cash today.</p>
+        
+        <a href="mailto:purchasing@MaSyLLC.com" class="button contact-link-sell">
+            Get Your Free Quote Now
         </a>
-        <p><small>P.S. Don't forget to change the 'your-email@MaSyLLC.com' link to your real email address!</</small></p>
+        <p><small>P.S. For the fastest quote, please include the model, specs (CPU, RAM, Storage), and condition of your device.</small></p>
+
+        
+        <h2>Enterprise & B2B Solutions</h2>
+        <p>MaSyLLC partners with businesses for bulk purchasing, IT asset disposition (ITAD), and system integration. Contact our enterprise team to discuss our B2B solutions.</p>
+        
+        <a href="mailto:info@MaSyLLC.com" class="button contact-link-general">
+            General & B2B Inquiries
+        </a>
 
     </div>
 
