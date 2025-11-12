@@ -11,9 +11,6 @@
             color: #333;
             margin: 0;
             padding: 0;
-            
-            /* * FIX #1: Changed to your actual filename.
-             */
             background-image: url('background.jpg'); 
             background-size: cover;
             background-position: center;
@@ -77,8 +74,13 @@
         }
         .gallery-item {
             flex: 1;
-            min-width: 300px;
-            max-width: 45%;
+            min-width: 280px; /* Min width before wrapping */
+            
+            /* * --- CSS CHANGE HERE --- 
+             * Changed max-width to 31% so three can fit side-by-side.
+             */
+            max-width: 31%; 
+
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
@@ -95,6 +97,7 @@
             color: #555;
             background-color: #f9f9f9;
             margin: 0;
+            text-align: center; /* Center the text */
         }
     </style>
 </head>
@@ -121,21 +124,26 @@
         <div class="image-gallery">
             <div class="gallery-item">
                 <img src="construction-workers.jpg" alt="Miniature workers repairing a circuit board.">
-                <p>Precision repair for complex hardware issues.</p>
+                <p>Precision Repair</p>
             </div>
             <div class="gallery-item">
                 <img src="laptops.jpg" alt="Person typing on a laptop with another laptop nearby.">
-                <p>Connecting you with quality computers and solutions.</p>
+                <p>Quality Sales</p>
             </div>
             
-</div>
+            <div class="gallery-item">
+                <img src="keyboard.jpg" alt="A glowing blue keyboard.">
+                <p>Modern Components</p>
+            </div>
+            
+        </div>
 
         <p>For inquiries, quotes, or service requests, please contact us:</p>
         
         <a href="mailto:your-email@MaSyLLC.com" class="contact-link">
             Click here to send us an email
         </a>
-        <p><small>P.S. Don't forget to change the 'your-email@MaSyLLC.com' link to your real email address!</small></p>
+        <p><small>P.S. Don't forget to change the 'your-email@MaSyLLC.com' link to your real email address!</</small></p>
 
     </div>
 
