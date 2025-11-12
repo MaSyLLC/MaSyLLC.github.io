@@ -20,28 +20,48 @@
         .content-box {
             max-width: 960px;
             margin: 40px auto;
-            padding: 20px 40px 40px 40px; /* More padding at bottom */
-            background-color: rgba(255, 255, 255, 0.97); /* Slightly more opaque */
+            padding: 20px 40px 40px 40px;
+            background-color: rgba(255, 255, 255, 0.97);
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            /* --- NEW --- */
+            overflow: hidden; /* Keeps new hero image corners rounded */
         }
 
         h1 {
             color: #222;
             text-align: center;
+            margin-bottom: 10px; /* Tighter spacing */
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 0;
             margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* --- NEW: Hero Image Style --- */
+        .hero-image {
+            width: 100%;
+            height: 300px; /* Or auto if you prefer */
+            object-fit: cover; /* Crops the image beautifully */
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         h2 {
             color: #444;
             border-bottom: 2px solid #eee;
             padding-bottom: 5px;
-            margin-top: 40px; /* More space between sections */
+            margin-top: 40px;
         }
         
         .services-list {
-            list-style-type: '✔'; /* A nicer checkmark bullet */
+            list-style-type: '✔';
             padding-left: 20px;
         }
         .services-list li {
@@ -49,7 +69,7 @@
             padding-left: 10px;
         }
 
-        /* --- STYLES FOR BUTTONS --- */
+        /* --- STYLES FOR BUTTONS (Unchanged) --- */
         .button {
             display: inline-block;
             font-size: 1.1em;
@@ -63,28 +83,24 @@
             text-align: center;
         }
         .button:hover {
-            transform: translateY(-2px); /* A slight lift on hover */
+            transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
-        /* Blue button for general contact */
         .contact-link-general {
             background-color: #0366d6;
         }
         .contact-link-general:hover {
             background-color: #0056b3;
         }
-        
-        /* Green button for "Sell Now" - stands out! */
         .contact-link-sell {
-            background-color: #28a745; /* A friendly, "go" green */
-            font-size: 1.3em; /* Bigger! */
+            background-color: #28a745;
+            font-size: 1.3em;
         }
         .contact-link-sell:hover {
             background-color: #218838;
         }
         
-        /* --- Styles for the gallery (unchanged) --- */
+        /* --- Styles for the gallery (Unchanged) --- */
         .image-gallery {
             display: flex;
             flex-wrap: wrap;
@@ -114,6 +130,32 @@
             background-color: #f9f9f9;
             text-align: center;
         }
+        
+        /* --- NEW: "Sell" Section Highlight --- */
+        .sell-section {
+            background-color: #f8fdf8; /* A very light, minty green */
+            padding: 20px 30px;
+            margin: 40px -40px 0 -40px; /* Breaks out of the padding */
+            border-top: 1px solid #d8ebd8;
+            border-bottom: 1px solid #d8ebd8;
+        }
+        .sell-section h2 {
+            margin-top: 0; /* Remove extra top margin */
+        }
+        .sell-section p:first-of-type {
+            font-size: 1.1em; /* Make the description text a bit bigger */
+        }
+        
+        /* --- NEW: Footer --- */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            color: #888;
+        }
+
     </style>
 </head>
 <body>
@@ -121,7 +163,9 @@
     <div class="content-box">
 
         <h1>Welcome to MaSyLLC</h1>
-        <p style="text-align: center; font-size: 1.2em; margin-top: -20px; color: #555;">Your Partner in Tech Solutions & IT Asset Lifecycle</p>
+        <p class="subtitle">Your Partner in Tech Solutions & IT Asset Lifecycle</p>
+        
+        <img src="laptoplid.jpg" alt="A modern laptop with a glowing screen" class="hero-image">
         
         
         <h2>Our Services</h2>
@@ -149,22 +193,29 @@
         </div>
 
         
-        <h2>Got Old Tech? Get Fast Cash.</h2>
-        <p>Tired of the hassle and low-ball offers on online marketplaces? We make selling your laptop simple and fast.</p>
-        <p>We offer fair, competitive prices for your used laptops, desktops, and other electronics. Get a fast, no-obligation quote and turn your old devices into cash today.</p>
+        <div class="sell-section">
+            <h2>Got Old Tech? Get Fast Cash.</h2>
+            <p>Tired of the hassle and low-ball offers on online marketplaces? We make selling your laptop simple and fast.</p>
+            <p>We offer fair, competitive prices for your used laptops, desktops, and other electronics. Get a fast, no-obligation quote and turn your old devices into cash today.</p>
+            
+            <a href="mailto:purchasing@MaSyLLC.com" class="button contact-link-sell">
+                Get Your Free Quote Now
+            </a>
+            <p><small>P.S. For the fastest quote, please include the model, specs (CPU, RAM, Storage), and condition of your device.</small></p>
+        </div>
         
-        <a href="mailto:purchasing@MaSyLLC.com" class="button contact-link-sell">
-            Get Your Free Quote Now
-        </a>
-        <p><small>P.S. For the fastest quote, please include the model, specs (CPU, RAM, Storage), and condition of your device.</small></p>
 
-        
         <h2>Enterprise & B2B Solutions</h2>
         <p>MaSyLLC partners with businesses for bulk purchasing, IT asset disposition (ITAD), and system integration. Contact our enterprise team to discuss our B2B solutions.</p>
         
         <a href="mailto:info@MaSyLLC.com" class="button contact-link-general">
             General & B2B Inquiries
         </a>
+        
+        
+        <div class="footer">
+            <p>&copy; 2025 MaSyLLC. All rights reserved.</p>
+        </div>
 
     </div>
 
