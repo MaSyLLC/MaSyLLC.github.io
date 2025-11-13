@@ -36,9 +36,7 @@
 <body class="bg-gray-50">
 
     <!-- 
-      NEW: Header is now "sticky"
-      - Added "sticky top-0 z-50" to make it stay at the top.
-      - Added "w-full" to ensure it spans the full width.
+      Header: Sticky and professional
     -->
     <header class="bg-white shadow-sm sticky top-0 z-50 w-full">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
@@ -54,8 +52,8 @@
                 <div class="hidden sm:flex space-x-6">
                     <a href="#how-it-works" class="text-base font-medium text-gray-500 hover:text-gray-900">How It Works</a>
                     <a href="#what-we-buy" class="text-base font-medium text-gray-500 hover:text-gray-900">What We Buy</a>
+                    <a href="#testimonials" class="text-base font-medium text-gray-500 hover:text-gray-900">Reviews</a>
                     <a href="#faq" class="text-base font-medium text-gray-500 hover:text-gray-900">FAQ</a>
-                    <a href="#why-us" class="text-base font-medium text-gray-500 hover:text-gray-900">Why Us</a>
                 </div>
                 <div class="ml-4">
                     <a href="#quote-form" class="inline-block bg-blue-600 py-2 px-5 border border-transparent rounded-lg text-base font-medium text-white hover:bg-blue-700 shadow-sm">
@@ -68,17 +66,17 @@
 
     <!-- Hero Section with Form -->
     <main class="overflow-hidden">
-        <div id="quote-form" class="bg-white py-16 sm:py-24">
+        <div id="quote-form" class="bg-white pt-16 pb-24 sm:pt-24 sm:pb-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
-                    <!-- Left: Value Proposition -->
+                    <!-- Left: Value Proposition (UPDATED FOCUS) -->
                     <div>
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
-                            Turn Your Old Tech Into <span class="text-blue-600">Fast Cash</span>.
+                            Turn Your Laptop or Gaming PC Into <span class="text-blue-600">Fast Cash</span>.
                         </h1>
                         <p class="mt-6 text-xl text-gray-600">
-                            Stop dealing with Marketplace lowballers and no-shows. Get a fast, fair, and guaranteed offer for your used laptop, gaming PC, or tablet.
+                            Stop dealing with Marketplace lowballers and no-shows. Get a fast, fair, and guaranteed offer for your used laptop, gaming PC, and other tech.
                         </p>
                         <ul class="mt-8 space-y-3">
                             <li class="flex items-center text-lg text-gray-700">
@@ -107,6 +105,10 @@
                         <h2 class="text-3xl font-bold text-gray-900 text-center mb-2">Get a Cash Offer in Hours</h2>
                         <p class="text-center text-gray-600 mb-8">Fill out the 60-second form below.</p>
                         
+                        <!-- 
+                          NOTE: This form action is a placeholder.
+                          You will need a service like Formspree to make it send an email.
+                        -->
                         <form action="#" method="POST" class="space-y-5">
                             <div>
                                 <label for="device-type" class="block text-sm font-medium text-gray-700">What are you selling?</label>
@@ -126,14 +128,16 @@
                                 <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
                                 <select id="brand" name="brand" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" disabled selected>Select a brand...</option>
-                                    <option value="apple">Apple</option>
+                                    <!-- Emphasized Brands -->
                                     <option value="dell">Dell</option>
-                                    <option value="hp">HP</option>
                                     <option value="lenovo">Lenovo</option>
                                     <option value="asus">ASUS</option>
+                                    <option value="razer">Razer</option>
+                                    <option value="hp">HP</option>
+                                    <option value="apple">Apple</option>
+                                    <!-- Other Brands -->
                                     <option value="acer">Acer</option>
                                     <option value="microsoft">Microsoft</option>
-                                    <option value="razer">Razer</option>
                                     <option value="samsung">Samsung</option>
                                     <option value="other">Other</option>
                                 </select>
@@ -145,7 +149,7 @@
                             </div>
 
                             <div>
-                                <label for="condition" class="block text-sm font-medium text-gray-700">Condition</to C>
+                                <label for="condition" class="block text-sm font-medium text-gray-700">Condition</label>
                                 <select id="condition" name="condition" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" disabled selected>Select condition...</option>
                                     <option value="like-new">Like New (Flawless, works perfectly)</option>
@@ -166,15 +170,43 @@
                                 </button>
                             </div>
                         </form>
-                        <p class="text-center text-xs text-gray-500 mt-4">We'll *only* use your email to send your quote. No spam, ever.</p>
+                        <p class="text-center text-xs text-gray-500 mt-4">
+                            We'll *only* use your email to send your quote. No spam, ever.
+                        </p>
+                        <!-- THIS IS THE NEWLY ADDED LINE -->
+                        <p class="text-center text-xs text-gray-500 mt-2">
+                            P.S. This form gets you a preliminary offer. We'll email you to confirm a few more details for your final, locked-in price!
+                        </p>
                     </div>
 
                 </div>
             </div>
         </div>
 
+        <!-- 
+          Trusted Brands Bar
+          - Reordered and expanded to 8 logos
+        -->
+        <div class="bg-gray-50 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-center text-base font-semibold text-gray-500 uppercase tracking-wider">We buy all major brands</h3>
+                <div class="mt-8 grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-y-8 gap-x-4 items-center">
+                    <!-- Replace placehold.co with real logo URLs -->
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=Dell" alt="Dell">
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=Lenovo" alt="Lenovo">
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=Asus" alt="Asus">
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=Razer" alt="Razer">
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=HP" alt="HP">
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=Apple" alt="Apple">
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=Samsung" alt="Samsung">
+                    <img class="max-h-12 w-full object-contain filter grayscale hover:grayscale-0 transition-all" src="https://placehold.co/158x48/000000/FFFFFF?text=Microsoft" alt="Microsoft">
+                </div>
+            </div>
+        </div>
+
+
         <!-- How It Works Section -->
-        <section id="how-it-works" class="bg-gray-50 py-16 sm:py-24">
+        <section id="how-it-works" class="bg-white py-16 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-lg font-semibold text-blue-600">How It Works</h2>
@@ -189,9 +221,9 @@
                             </svg>
                         </div>
                         <h3 class="mt-6 text-2xl font-bold text-gray-900">1. Get Your Quote</h3>
-                        <p class="mt-2 text-lg text-gray-600">Fill out our simple form with your device details. We'll email you a fair, no-obligation offer within hours.</p>
+                        <p class="mt-2 text-lg text-gray-600">Fill out our simple form. We'll email you a fair, no-obligation offer within hours.</p>
                     </div>
-                    <!-- Step 2 -->
+                    <!-- Step 2 (Upgraded Text) -->
                     <div class="text-center">
                         <div class="flex items-center justify-center h-16 w-16 bg-blue-600 text-white rounded-full mx-auto">
                             <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -200,7 +232,7 @@
                             </svg>
                         </div>
                         <h3 class="mt-6 text-2xl font-bold text-gray-900">2. Ship It Free</h3>
-                        <p class="mt-2 text-lg text-gray-600">Accept the offer? We'll send you a prepaid shipping label on us. Just box up your device and drop it off.</p>
+                        <p class="mt-2 text-lg text-gray-600">Accept the offer? We'll email a prepaid QR code or label. We even send free shipping kits for high-value items.</p>
                     </div>
                     <!-- Step 3 -->
                     <div class="text-center">
@@ -210,53 +242,47 @@
                             </svg>
                         </div>
                         <h3 class="mt-6 text-2xl font-bold text-gray-900">3. Get Paid Fast</h3>
-                        <p class="mt-2 text-lg text-gray-600">Once we receive and inspect your device, we'll send your payment immediately via PayPal, Venmo, or Zelle.</p>
+                        <p class="mt-2 text-lg text-gray-600">Once we get and inspect your device, we send your payment *immediately* via PayPal, Venmo, or Zelle.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- What We Buy Section -->
-        <section id="what-we-buy" class="bg-white py-16 sm:py-24">
+        <section id="what-we-buy" class="bg-gray-50 py-16 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-lg font-semibold text-blue-600">What We Buy</h2>
                     <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">We're looking for your used tech</p>
                 </div>
-                <!-- 
-                  UPDATED: 
-                  - Changed grid to 5 columns on large screens (lg:grid-cols-5)
-                  - Reduced gap to gap-6
-                  - Reduced text size and image height in items
-                  - Added "Cell Phones"
-                -->
+                <!-- Replace placehold.co images with real, high-quality images -->
                 <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                     <!-- Item -->
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                         <img src="https://placehold.co/600x400/3b82f6/FFFFFF?text=Laptops" alt="Laptop" class="w-full h-40 object-cover rounded-lg mb-4">
                         <h3 class="text-xl font-bold text-gray-900">Laptops</h3>
                         <p class="text-gray-600 text-sm">Windows, Chromebooks</p>
                     </div>
                     <!-- Item -->
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                         <img src="https://placehold.co/600x400/10b981/FFFFFF?text=MacBooks" alt="MacBook" class="w-full h-40 object-cover rounded-lg mb-4">
                         <h3 class="text-xl font-bold text-gray-900">MacBooks</h3>
                         <p class="text-gray-600 text-sm">Pro, Air, and iMacs</p>
                     </div>
                     <!-- Item -->
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                         <img src="https://placehold.co/600x400/ef4444/FFFFFF?text=Gaming+PCs" alt="Gaming PC" class="w-full h-40 object-cover rounded-lg mb-4">
                         <h3 class="text-xl font-bold text-gray-900">Gaming PCs</h3>
                         <p class="text-gray-600 text-sm">Desktops & Laptops</p>
                     </div>
                     <!-- Item -->
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                         <img src="https://placehold.co/600x400/f59e0b/FFFFFF?text=Tablets" alt="Tablet" class="w-full h-40 object-cover rounded-lg mb-4">
                         <h3 class="text-xl font-bold text-gray-900">Tablets</h3>
                         <p class="text-gray-600 text-sm">iPads, Surface, Galaxy</p>
                     </div>
-                    <!-- NEW Item -->
-                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                    <!-- Item -->
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
                         <img src="https://placehold.co/600x400/8b5cf6/FFFFFF?text=Cell+Phones" alt="Cell Phone" class="w-full h-40 object-cover rounded-lg mb-4">
                         <h3 class="text-xl font-bold text-gray-900">Cell Phones</h3>
                         <p class="text-gray-600 text-sm">iPhone, Galaxy, Pixel</p>
@@ -266,10 +292,95 @@
         </section>
 
         <!-- 
-          NEW: FAQ Section
-          - Added to build trust and answer common questions.
+          How to Prepare Your Device Section
         -->
-        <section id="faq" class="bg-gray-50 py-16 sm:py-24">
+        <section id="prepare" class="bg-white py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-lg font-semibold text-blue-600">One More Thing...</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">How to Prepare Your Device</p>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        Please follow these steps *before* you ship. We cannot buy devices that are locked to a personal account.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Step 1 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 bg-blue-100 text-blue-600 rounded-full mx-auto">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-bold text-gray-900">1. Back Up Your Data</h3>
+                        <p class="mt-2 text-lg text-gray-600">Save your photos, files, and contacts to the cloud or an external drive. We will wipe all data permanently.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 bg-blue-100 text-blue-600 rounded-full mx-auto">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-bold text-gray-900">2. Sign Out of All Accounts</h3>
+                        <p class="mt-2 text-lg text-gray-600">This is the most important step! Please sign out of your **iCloud (Apple ID), Google, or Samsung account**.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 bg-blue-100 text-blue-600 rounded-full mx-auto">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9H4m4 12v-5h-.581m0 0a8.003 8.003 0 00-1.558-10.42m1.558 10.42A8.001 8.001 0 0019.418 9H20m-4 12v-5h.581m0 0a8.003 8.003 0 001.558-10.42M1.58 9h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-bold text-gray-900">3. Factory Reset</h3>
+                        <p class="mt-2 text-lg text-gray-600">After signing out, go to your settings and perform a full factory reset to erase your device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          Testimonials Section (WITH REAL TESTIMONIALS)
+        -->
+        <section id="testimonials" class="bg-gray-50 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-lg font-semibold text-blue-600">Don't Just Take Our Word For It</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Real Reviews From Happy Sellers</p>
+                </div>
+                <!-- Real Testimonials -->
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-lg text-gray-700">"This was 10x easier than Facebook Marketplace. I got a fair quote, shipped it for free, and got paid the same day they received it. So simple."</p>
+                        <div class="mt-6">
+                            <div class="font-bold text-gray-900">Ray F.</div>
+                            <div class="text-gray-500 text-sm">Sold a Gaming Laptop</div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-lg text-gray-700">"I was skeptical at first, but the process was completely transparent. The payment was exactly what they quoted. Highly recommend."</p>
+                        <div class="mt-6">
+                            <div class="font-bold text-gray-900">Mohammad S.</div>
+                            <div class="text-gray-500 text-sm">Sold a Gaming Laptop</div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <p class="text-lg text-gray-700">"My laptop was just sitting in a drawer. I filled out the form, got an offer in an hour, and had cash in my PayPal two days later. Incredible."</p>
+                        <div class="mt-6">
+                            <div class="font-bold text-gray-900">Miles G.</div>
+                            <div class="text-gray-500 text-sm">Sold a Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          FAQ Section
+        -->
+        <section id="faq" class="bg-white py-16 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-lg font-semibold text-blue-600">Questions?</h2>
@@ -277,36 +388,36 @@
                 </div>
                 <div class="mt-16 max-w-4xl mx-auto space-y-8">
                     <!-- FAQ Item -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h3 class="text-xl font-bold text-gray-900">How do you determine your offer?</h3>
-                        <p class="mt-2 text-gray-600">Our offers are based on the device model, its cosmetic condition, and its functional condition, as well as current market value. We aim to give the most competitive, fair price possible.</p>
+                        <p class="mt-2 text-gray-700">Our offers are based on the device model, its cosmetic and functional condition, and current market value. We're a team of tech experts, and we aim to give the most competitive, fair price possible.</p>
                     </div>
                     <!-- FAQ Item -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h3 class="text-xl font-bold text-gray-900">What happens if my device isn't as described?</h3>
-                        <p class="mt-2 text-gray-600">This is our "Gotcha" policy: there is no gotcha. If we receive your device and its condition doesn't match your description, we'll email you a revised, fair offer. If you decline, we ship your device right back to you, 100% free of charge.</p>
+                        <p class="mt-2 text-gray-700">This is our "Gotcha" policy: there is no gotcha. If we receive your device and its condition doesn't match your description, we'll email you a revised, fair offer. If you decline, we ship your device right back to you, 100% free of charge.</p>
                     </div>
                     <!-- FAQ Item -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h3 class="text-xl font-bold text-gray-900">Is my personal data safe?</h3>
-                        <p class="mt-2 text-gray-600">Absolutely. We professionally wipe all data from every device we receive as a standard part of our process. You can be confident your personal information is securely destroyed.</p>
+                        <p class="mt-2 text-gray-700">Absolutely. We professionally wipe all data from every device we receive as a standard part of our process. We'll also guide you on how to back up and wipe your device before you even ship it.</p>
                     </div>
                     <!-- FAQ Item -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h3 class="text-xl font-bold text-gray-900">How long does it take to get paid?</h3>
-                        <p class="mt-2 text-gray-600">Once we receive your device, we inspect it within 1-2 business days. As soon as inspection is complete and matches your description, we send your payment immediately via PayPal, Venmo, or Zelle.</p>
+                        <p class="mt-2 text-gray-700">Once we receive your device, we inspect it within 1-2 business days. As soon as inspection is complete and matches your description, we send your payment immediately via PayPal, Venmo, or Zelle.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Why Us Section -->
+        <!-- Why Us Section (UPDATED TEXT) -->
         <section id="why-us" class="bg-gray-900 text-white py-16 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-lg font-semibold text-blue-400">Peace of Mind</h2>
                     <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">The Easiest Way to Sell. Period.</p>
-                    <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">We're a registered US business, not a random person on the internet. We're here to make selling your old tech simple, safe, and profitable for you.</p>
+                    <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">We're a registered US business and tech experts, not a random person on the internet. We're here to make selling your old tech simple, safe, and profitable for you.</p>
                 </div>
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- Feature -->
@@ -332,7 +443,7 @@
                         </div>
                         <div class="ml-4">
                             <h3 class="text-xl font-bold">Secure Data Wiping</h3>
-                            <p class="mt-1 text-gray-300">Worried about your personal files? We professionally wipe every device we receive. Your data is safe.</p>
+                            <p class="mt-1 text-gray-300">We professionally wipe every device. Plus, we'll guide you on how to remove your accounts before shipping.</p>
                         </div>
                     </div>
                     <!-- Feature -->
@@ -344,17 +455,14 @@
                         </div>
                         <div class="ml-4">
                             <h3 class="text-xl font-bold">Guaranteed Payment</h3>
-                            <p class="mt-1 text-gray-300">As long as your device matches your description, your offer is locked. If not, we'll give you a new quote or ship it back, free.</p>
+                            <p class="mt-1 text-gray-300">Your offer is locked as long as your device matches. If not, we'll give you a new quote or ship it back, free.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 
-          NEW: Final Call-to-Action (CTA)
-          - A final prompt to get the user to convert.
-        -->
+        <!-- Final Call-to-Action (CTA) -->
         <section class="bg-white">
             <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">
@@ -371,17 +479,47 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white">
+    <!-- 
+      Upgraded Footer
+    -->
+    <footer class="bg-gray-100 border-t border-gray-200">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-center space-x-6">
-                <a href="#how-it-works" class="text-gray-500 hover:text-gray-900">How It Works</a>
-                <a href="#what-we-buy" class="text-gray-500 hover:text-gray-900">What We Buy</a>
-                <a href="#faq" class="text-gray-500 hover:text-gray-900">FAQ</a>
-                <a href="#why-us" class="text-gray-500 hover:text-gray-900">Why Us</a>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-lg font-bold text-gray-900">
+                        <span class="text-blue-600">MaSyLLC</span> Buyback
+                    </h3>
+                    <p class="mt-2 text-base text-gray-500">
+                        We're a tech-focused company dedicated to making it easy and safe for you to sell your used electronics for a fair price. We believe in transparency and amazing customer service.
+                    </p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#how-it-works" class="text-base text-gray-500 hover:text-gray-900">How It Works</a></li>
+                        <li><a href="#what-we-buy" class="text-base text-gray-500 hover:text-gray-900">What We Buy</a></li>
+                        <li><a href="#prepare" class="text-base text-gray-500 hover:text-gray-900">Prepare Your Device</a></li>
+                        <li><a href="#faq" class="text-base text-gray-500 hover:text-gray-900">FAQ</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Contact Us</h4>
+                    <ul class="mt-4 space-y-2">
+                        <li class="text-base text-gray-500">
+                            Email: <a href="mailto:quotes@masyllc.com" class="hover:text-gray-900">quotes@masyllc.com</a>
+                        </li>
+                        <li class="text-base text-gray-500">
+                            <!-- Make sure this is a real, legitimate address (even a PO Box) -->
+                            Kulpsville, PA 19443
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="mt-8 text-center text-base text-gray-400">
-                &copy; 2025 MaSyLLC. All rights reserved.
+            <div class="mt-12 border-t border-gray-200 pt-8 text-center">
+                <p class="text-base text-gray-400">&copy; 2025 MaSyLLC. All rights reserved.</p>
             </div>
         </div>
     </footer>
