@@ -3,221 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaSyLLC - Full-Service Tech Solutions</title>
+    <title>MaSyLLC Buyback - Get Cash for Your Tech</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        // Optional: Smooth scroll for anchor links
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+    
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-image: url('background.jpg'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
-        .content-box {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 20px 40px 40px 40px;
-            background-color: rgba(255, 255, 255, 0.97);
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            /* --- NEW --- */
-            overflow: hidden; /* Keeps new hero image corners rounded */
-        }
-
-        h1 {
-            color: #222;
-            text-align: center;
-            margin-bottom: 10px; /* Tighter spacing */
-        }
-        
-        .subtitle {
-            text-align: center;
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 30px;
-            color: #555;
-        }
-
-        /* --- NEW: Hero Image Style --- */
-        .hero-image {
-            width: 100%;
-            height: 300px; /* Or auto if you prefer */
-            object-fit: cover; /* Crops the image beautifully */
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            color: #444;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
-        
-        .services-list {
-            list-style-type: '✔';
-            padding-left: 20px;
-        }
-        .services-list li {
-            margin-bottom: 10px;
-            padding-left: 10px;
-        }
-
-        /* --- STYLES FOR BUTTONS (Unchanged) --- */
-        .button {
-            display: inline-block;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #fff;
-            padding: 14px 22px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.2s;
-            margin-top: 15px;
-            text-align: center;
-        }
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .contact-link-general {
-            background-color: #0366d6;
-        }
-        .contact-link-general:hover {
-            background-color: #0056b3;
-        }
-        .contact-link-sell {
-            background-color: #28a745;
-            font-size: 1.3em;
-        }
-        .contact-link-sell:hover {
-            background-color: #218838;
-        }
-        
-        /* --- Styles for the gallery (Unchanged) --- */
-        .image-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-        .gallery-item {
-            flex: 1;
-            min-width: 280px;
-            max-width: 31%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .gallery-item p {
-            padding: 10px 15px;
-            font-size: 0.9em;
-            color: #555;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        
-        /* --- NEW: "Sell" Section Highlight --- */
-        .sell-section {
-            background-color: #f8fdf8; /* A very light, minty green */
-            padding: 20px 30px;
-            margin: 40px -40px 0 -40px; /* Breaks out of the padding */
-            border-top: 1px solid #d8ebd8;
-            border-bottom: 1px solid #d8ebd8;
-        }
-        .sell-section h2 {
-            margin-top: 0; /* Remove extra top margin */
-        }
-        .sell-section p:first-of-type {
-            font-size: 1.1em; /* Make the description text a bit bigger */
-        }
-        
-        /* --- NEW: Footer --- */
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-size: 0.9em;
-            color: #888;
-        }
-
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-    <div class="content-box">
+    <!-- 
+      NEW: Header is now "sticky"
+      - Added "sticky top-0 z-50" to make it stay at the top.
+      - Added "w-full" to ensure it spans the full width.
+    -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+            <div class="w-full py-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#">
+                        <span class="sr-only">MaSyLLC Buyback</span>
+                        <!-- Simple text logo -->
+                        <span class="text-2xl font-bold text-gray-900">MaSyLLC</span>
+                        <span class="text-2xl font-bold text-blue-600">Buyback</span>
+                    </a>
+                </div>
+                <div class="hidden sm:flex space-x-6">
+                    <a href="#how-it-works" class="text-base font-medium text-gray-500 hover:text-gray-900">How It Works</a>
+                    <a href="#what-we-buy" class="text-base font-medium text-gray-500 hover:text-gray-900">What We Buy</a>
+                    <a href="#faq" class="text-base font-medium text-gray-500 hover:text-gray-900">FAQ</a>
+                    <a href="#why-us" class="text-base font-medium text-gray-500 hover:text-gray-900">Why Us</a>
+                </div>
+                <div class="ml-4">
+                    <a href="#quote-form" class="inline-block bg-blue-600 py-2 px-5 border border-transparent rounded-lg text-base font-medium text-white hover:bg-blue-700 shadow-sm">
+                        Get Your Quote
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-        <h1>Welcome to MaSyLLC</h1>
-        <p class="subtitle">Your Partner in Tech Solutions & IT Asset Lifecycle</p>
-        
-        <img src="laptoplid.jpg" alt="A modern laptop with a glowing screen" class="hero-image">
-        
-        
-        <h2>Our Services</h2>
-        <p>We handle the complete lifecycle of tech assets. Whether you're upgrading, repairing, or selling, we provide expert, reliable service.</p>
-        <ul class="services-list">
-            <li><b>Purchasing:</b> We buy used laptops, desktops, and bulk IT assets.</li>
-            <li><b>Refurbishment & Repair:</b> Our expert technicians diagnose, repair, and certify devices.</li>
-            <li><b>Sales:</b> Shop our selection of high-quality, certified refurbished computers.</li>
-            <li><b>Data Services:</b> Secure data removal, optimization, and recovery.</li>
-        </ul>
-        
-        <div class="image-gallery">
-            <div class="gallery-item">
-                <img src="construction-workers.jpg" alt="Miniature workers repairing a circuit board.">
-                <p>Precision Repair</p>
-            </div>
-            <div class="gallery-item">
-                <img src="laptops.jpg" alt="Person typing on a laptop with another laptop nearby.">
-                <p>Quality Sales</p>
-            </div>
-            <div class="gallery-item">
-                <img src="keyboard.jpg" alt="A glowing blue keyboard.">
-                <p>Modern Components</p>
+    <!-- Hero Section with Form -->
+    <main class="overflow-hidden">
+        <div id="quote-form" class="bg-white py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Left: Value Proposition -->
+                    <div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
+                            Turn Your Old Tech Into <span class="text-blue-600">Fast Cash</span>.
+                        </h1>
+                        <p class="mt-6 text-xl text-gray-600">
+                            Stop dealing with Marketplace lowballers and no-shows. Get a fast, fair, and guaranteed offer for your used laptop, gaming PC, or tablet.
+                        </p>
+                        <ul class="mt-8 space-y-3">
+                            <li class="flex items-center text-lg text-gray-700">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Fair, competitive offers
+                            </li>
+                            <li class="flex items-center text-lg text-gray-700">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                100% Free prepaid shipping
+                            </li>
+                            <li class="flex items-center text-lg text-gray-700">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Fast payment upon inspection
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right: The Quote Form -->
+                    <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-2xl border border-gray-100">
+                        <h2 class="text-3xl font-bold text-gray-900 text-center mb-2">Get a Cash Offer in Hours</h2>
+                        <p class="text-center text-gray-600 mb-8">Fill out the 60-second form below.</p>
+                        
+                        <form action="#" method="POST" class="space-y-5">
+                            <div>
+                                <label for="device-type" class="block text-sm font-medium text-gray-700">What are you selling?</label>
+                                <select id="device-type" name="device_type" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" disabled selected>Select a device type...</option>
+                                    <option value="laptop">Laptop</option>
+                                    <option value="gaming-pc">Gaming PC (Desktop)</option>
+                                    <option value="macbook">Apple MacBook</option>
+                                    <option value="all-in-one">All-in-One Computer</option>
+                                    <option value="tablet">Tablet (iPad, Surface)</option>
+                                    <option value="cell-phone">Cell Phone (iPhone, Galaxy, etc.)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                                <select id="brand" name="brand" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" disabled selected>Select a brand...</option>
+                                    <option value="apple">Apple</option>
+                                    <option value="dell">Dell</option>
+                                    <option value="hp">HP</option>
+                                    <option value="lenovo">Lenovo</option>
+                                    <option value="asus">ASUS</option>
+                                    <option value="acer">Acer</option>
+                                    <option value="microsoft">Microsoft</option>
+                                    <option value="razer">Razer</option>
+                                    <option value="samsung">Samsung</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="model" class="block text-sm font-medium text-gray-700">Model</label>
+                                <input type="text" id="model" name="model" required placeholder="e.g., XPS 15 9510 or MacBook Pro 14-inch" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+
+                            <div>
+                                <label for="condition" class="block text-sm font-medium text-gray-700">Condition</to C>
+                                <select id="condition" name="condition" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" disabled selected>Select condition...</option>
+                                    <option value="like-new">Like New (Flawless, works perfectly)</option>
+                                    <option value="good">Good (Light scratches, works perfectly)</option>
+                                    <option value="fair">Fair (Visible wear or dents, works)</option>
+                                    <option value="damaged">Damaged / For Parts (Cracked, doesn't turn on, etc.)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Where should we send your quote?</label>
+                                <input type="email" id="email" name="email" required placeholder="you@example.com" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                                    Get My Free Quote
+                                </button>
+                            </div>
+                        </form>
+                        <p class="text-center text-xs text-gray-500 mt-4">We'll *only* use your email to send your quote. No spam, ever.</p>
+                    </div>
+
+                </div>
             </div>
         </div>
 
-        
-        <div class="sell-section">
-            <h2>Got Old Tech? Get Fast Cash.</h2>
-            <p>Tired of the hassle and low-ball offers on online marketplaces? We make selling your laptop simple and fast.</p>
-            <p>We offer fair, competitive prices for your used laptops, desktops, and other electronics. Get a fast, no-obligation quote and turn your old devices into cash today.</p>
-            
-            <a href="mailto:purchasing@MaSyLLC.com" class="button contact-link-sell">
-                Get Your Free Quote Now
-            </a>
-            <p><small>P.S. For the fastest quote, please include the model, specs (CPU, RAM, Storage), and condition of your device.</small></p>
-        </div>
-        
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="bg-gray-50 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-lg font-semibold text-blue-600">How It Works</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Sell your device in 3 simple steps</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Step 1 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 bg-blue-600 text-white rounded-full mx-auto">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-bold text-gray-900">1. Get Your Quote</h3>
+                        <p class="mt-2 text-lg text-gray-600">Fill out our simple form with your device details. We'll email you a fair, no-obligation offer within hours.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 bg-blue-600 text-white rounded-full mx-auto">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2M6 13H4" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11v6l-2-2m4 0l-2 2m0-4.01V5" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-bold text-gray-900">2. Ship It Free</h3>
+                        <p class="mt-2 text-lg text-gray-600">Accept the offer? We'll send you a prepaid shipping label on us. Just box up your device and drop it off.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 bg-blue-600 text-white rounded-full mx-auto">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-bold text-gray-900">3. Get Paid Fast</h3>
+                        <p class="mt-2 text-lg text-gray-600">Once we receive and inspect your device, we'll send your payment immediately via PayPal, Venmo, or Zelle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h2>Enterprise & B2B Solutions</h2>
-        <p>MaSyLLC partners with businesses for bulk purchasing, IT asset disposition (ITAD), and system integration. Contact our enterprise team to discuss our B2B solutions.</p>
-        
-        <a href="mailto:info@MaSyLLC.com" class="button contact-link-general">
-            General & B2B Inquiries
-        </a>
-        
-        
-        <div class="footer">
-            <p>&copy; 2025 MaSyLLC. All rights reserved.</p>
-        </div>
+        <!-- What We Buy Section -->
+        <section id="what-we-buy" class="bg-white py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-lg font-semibold text-blue-600">What We Buy</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">We're looking for your used tech</p>
+                </div>
+                <!-- 
+                  UPDATED: 
+                  - Changed grid to 5 columns on large screens (lg:grid-cols-5)
+                  - Reduced gap to gap-6
+                  - Reduced text size and image height in items
+                  - Added "Cell Phones"
+                -->
+                <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Item -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="https://placehold.co/600x400/3b82f6/FFFFFF?text=Laptops" alt="Laptop" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Laptops</h3>
+                        <p class="text-gray-600 text-sm">Windows, Chromebooks</p>
+                    </div>
+                    <!-- Item -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="https://placehold.co/600x400/10b981/FFFFFF?text=MacBooks" alt="MacBook" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">MacBooks</h3>
+                        <p class="text-gray-600 text-sm">Pro, Air, and iMacs</p>
+                    </div>
+                    <!-- Item -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="https://placehold.co/600x400/ef4444/FFFFFF?text=Gaming+PCs" alt="Gaming PC" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Gaming PCs</h3>
+                        <p class="text-gray-600 text-sm">Desktops & Laptops</p>
+                    </div>
+                    <!-- Item -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="https://placehold.co/600x400/f59e0b/FFFFFF?text=Tablets" alt="Tablet" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Tablets</h3>
+                        <p class="text-gray-600 text-sm">iPads, Surface, Galaxy</p>
+                    </div>
+                    <!-- NEW Item -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="https://placehold.co/600x400/8b5cf6/FFFFFF?text=Cell+Phones" alt="Cell Phone" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Cell Phones</h3>
+                        <p class="text-gray-600 text-sm">iPhone, Galaxy, Pixel</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </div>
+        <!-- 
+          NEW: FAQ Section
+          - Added to build trust and answer common questions.
+        -->
+        <section id="faq" class="bg-gray-50 py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-lg font-semibold text-blue-600">Questions?</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Frequently Asked Questions</p>
+                </div>
+                <div class="mt-16 max-w-4xl mx-auto space-y-8">
+                    <!-- FAQ Item -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-900">How do you determine your offer?</h3>
+                        <p class="mt-2 text-gray-600">Our offers are based on the device model, its cosmetic condition, and its functional condition, as well as current market value. We aim to give the most competitive, fair price possible.</p>
+                    </div>
+                    <!-- FAQ Item -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-900">What happens if my device isn't as described?</h3>
+                        <p class="mt-2 text-gray-600">This is our "Gotcha" policy: there is no gotcha. If we receive your device and its condition doesn't match your description, we'll email you a revised, fair offer. If you decline, we ship your device right back to you, 100% free of charge.</p>
+                    </div>
+                    <!-- FAQ Item -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-900">Is my personal data safe?</h3>
+                        <p class="mt-2 text-gray-600">Absolutely. We professionally wipe all data from every device we receive as a standard part of our process. You can be confident your personal information is securely destroyed.</p>
+                    </div>
+                    <!-- FAQ Item -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-900">How long does it take to get paid?</h3>
+                        <p class="mt-2 text-gray-600">Once we receive your device, we inspect it within 1-2 business days. As soon as inspection is complete and matches your description, we send your payment immediately via PayPal, Venmo, or Zelle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section id="why-us" class="bg-gray-900 text-white py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-lg font-semibold text-blue-400">Peace of Mind</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">The Easiest Way to Sell. Period.</p>
+                    <p class="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">We're a registered US business, not a random person on the internet. We're here to make selling your old tech simple, safe, and profitable for you.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Feature -->
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-8 w-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8C9.791 8 8 9.79 8 12s1.791 4 4 4 4-1.79 4-4-1.791-4-4-4z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18a.969.969 0 00-.832.445l-1.898 2.847A1 1 0 0010.168 23h3.664a1 1 0 00.898-1.708l-1.898-2.847A.969.969 0 0012 18z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6a.969.969 0 01.832-.445l1.898-2.847A1 1 0 0115.832 1h-3.664a1 1 0 01-.898 1.708l1.898 2.847A.969.969 0 0112 6z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">Skip the Hassle</h3>
+                            <p class="mt-1 text-gray-300">No more flakey buyers, silly offers, or meeting strangers. Get a real quote and get paid.</p>
+                        </div>
+                    </div>
+                    <!-- Feature -->
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-8 w-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">Secure Data Wiping</h3>
+                            <p class="mt-1 text-gray-300">Worried about your personal files? We professionally wipe every device we receive. Your data is safe.</p>
+                        </div>
+                    </div>
+                    <!-- Feature -->
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-8 w-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-xl font-bold">Guaranteed Payment</h3>
+                            <p class="mt-1 text-gray-300">As long as your device matches your description, your offer is locked. If not, we'll give you a new quote or ship it back, free.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          NEW: Final Call-to-Action (CTA)
+          - A final prompt to get the user to convert.
+        -->
+        <section class="bg-white">
+            <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+                    Ready to Get Your Offer?
+                </h2>
+                <p class="mt-4 text-xl text-gray-600">
+                    It's fast, free, and there's no obligation.
+                </p>
+                <a href="#quote-form" class="mt-8 inline-block bg-blue-600 py-3 px-8 border border-transparent rounded-lg text-xl font-medium text-white hover:bg-blue-700 shadow-lg">
+                    Get My Free Quote
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-6">
+                <a href="#how-it-works" class="text-gray-500 hover:text-gray-900">How It Works</a>
+                <a href="#what-we-buy" class="text-gray-500 hover:text-gray-900">What We Buy</a>
+                <a href="#faq" class="text-gray-500 hover:text-gray-900">FAQ</a>
+                <a href="#why-us" class="text-gray-500 hover:text-gray-900">Why Us</a>
+            </div>
+            <div class="mt-8 text-center text-base text-gray-400">
+                &copy; 2025 MaSyLLC. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
