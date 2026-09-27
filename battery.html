@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Generate a Battery Report - MaSyLLC Buyback</title>
+    <title>Check Your Battery Health - MaSyLLC Buyback</title>
+    <meta name="description" content="How to check your laptop, MacBook, or iPhone battery health in 2 minutes, and what the numbers mean for your buyback offer.">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Inter font -->
@@ -83,6 +84,40 @@
             margin-top: 1rem; /* mt-4 */
             margin-bottom: 1rem; /* mb-4 */
         }
+        .help-content ul.scale { list-style: none; padding-left: 0; }
+        .help-content ul.scale li { display: flex; gap: .6rem; align-items: baseline; }
+        .dot { flex-shrink: 0; width: .75rem; height: .75rem; border-radius: 9999px; display: inline-block; }
+        .dot.good { background: #16a34a; } .dot.mid { background: #f59e0b; } .dot.bad { background: #dc2626; }
+        .help-content kbd { font-family: inherit; font-size: .9rem; background: #f9fafb; border: 1px solid #d1d5db; border-bottom-width: 2px; border-radius: .3rem; padding: .05rem .4rem; color: #111827; white-space: nowrap; }
+        .help-content h2 { scroll-margin-top: 5.5rem; }
+        .cmd { margin: .6rem 0; display: flex; gap: .5rem; align-items: stretch; flex-wrap: wrap; }
+        .cmd code { flex: 1 1 18rem; display: block; color: #111827 !important; background: #f3f4f6; padding: .6rem .75rem !important; font-size: .9rem !important; overflow-wrap: anywhere; }
+        .copy { background: #2563eb; color: #fff; font-weight: 600; border-radius: .375rem; padding: .4rem 1rem; }
+        .copy:hover { background: #1d4ed8; }
+        .example-label { margin-top: 1.5rem; margin-bottom: .5rem !important; font-size: .95rem !important; font-weight: 600; color: #6b7280 !important; text-transform: uppercase; letter-spacing: .04em; }
+        .example { border: 1px solid #e5e7eb; border-radius: .5rem; overflow: hidden; max-width: 30rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,.08); }
+        .example.win { padding: 1rem 1.25rem; font-family: "Segoe UI", Arial, sans-serif; background: #fff; }
+        .win-title { font-size: 1.25rem; color: #1f2937; margin-bottom: .5rem; }
+        .example table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+        .example td { padding: .3rem .5rem; color: #374151; }
+        .example td:first-child { color: #6b7280; font-size: .8rem; letter-spacing: .03em; width: 55%; }
+        .example tr.hl td { background: #fef9c3; font-weight: 600; color: #111827; }
+        .example.mac { background: #f5f5f7; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; }
+        .mac-bar { display: flex; gap: .4rem; padding: .6rem .75rem; background: #e5e5ea; }
+        .mac-bar span { width: .7rem; height: .7rem; border-radius: 9999px; background: #ff5f57; }
+        .mac-bar span:nth-child(2) { background: #febc2e; } .mac-bar span:nth-child(3) { background: #28c840; }
+        .mac-body { padding: 1rem 1.25rem; font-size: .9rem; color: #1d1d1f; }
+        .mac-head { font-weight: 700; margin-bottom: .4rem; }
+        .mac-row { display: flex; justify-content: space-between; gap: 1rem; padding: .3rem .5rem; }
+        .mac-row.hl { background: #fef9c3; font-weight: 600; }
+        .note { font-size: 1rem !important; }
+        .calc { margin-top: 1.5rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: .5rem; padding: 1.25rem; }
+        .calc h3 { margin-top: 0 !important; }
+        .calc-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; }
+        .calc label { display: flex; flex-direction: column; gap: .35rem; font-size: .95rem; font-weight: 600; color: #374151; }
+        .calc input { padding: .6rem .75rem; border: 1px solid #d1d5db; border-radius: .5rem; font-size: 1rem; background: #fff; }
+        .calc input:focus { outline: 2px solid #3b82f6; outline-offset: 1px; }
+        .result { margin: 1rem 0 0 !important; font-weight: 600; color: #1f2937 !important; }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -119,37 +154,95 @@
 
     <!-- Main Content Area -->
     <main>
-        <div class="bg-white py-16">
-            <div class="text-center">
-                <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">How to Generate a Battery Report</h1>
-                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto px-4">A good battery health report can increase your offer! Here's how to find it.</p>
+        <div class="bg-white pt-16 pb-24">
+            <div class="text-center max-w-3xl mx-auto px-4">
+                <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">Check Your Battery Health</h1>
+                <p class="mt-4 text-xl text-gray-600">A healthy battery is worth more. Sending us this report helps us confirm your offer before you ship, so there are no surprises. It takes about 2 minutes.</p>
+                <div class="mt-6 flex flex-wrap justify-center gap-3">
+                    <a href="#windows" class="inline-block bg-blue-600 py-2 px-5 rounded-lg font-medium text-white hover:bg-blue-700">Windows laptop</a>
+                    <a href="#mac" class="inline-block bg-white py-2 px-5 rounded-lg font-medium text-blue-700 border border-blue-200 hover:bg-blue-50">MacBook</a>
+                    <a href="#iphone" class="inline-block bg-white py-2 px-5 rounded-lg font-medium text-blue-700 border border-blue-200 hover:bg-blue-50">iPhone / iPad</a>
+                </div>
             </div>
         </div>
-        
+
         <div class="bg-gray-50 pb-16">
             <div class="help-content bg-white shadow-xl rounded-lg -mt-16">
-                
-                <h2>On Windows 10 & 11</h2>
-                <ol>
-                    <li>Click the Start Menu and type <code>cmd</code>.</li>
-                    <li>Right-click on <strong>"Command Prompt"</strong> and select <strong>"Run as administrator"</strong>.</li>
-                    <li>In the black window that appears, type this exact command: <code>powercfg /batteryreport</code></li>
-                    <li>Press <strong>Enter</strong>.</li>
-                    <li>It will save a file. You can find it at the path it shows, usually: <code>C:\Windows\system32\battery-report.html</code></li>
-                    <li>Open that file (it will open in your web browser).</li>
-                    <li>Screenshot the top section titled <strong>"Installed batteries"</strong>. We need to see the <strong>"Design Capacity"</strong> and <strong>"Full Charge Capacity"</strong>.</li>
-                </ol>
-                <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Example+of+Windows+Battery+Report" alt="Example of Windows Battery Report">
 
-                <h2>On macOS (MacBooks & iMacs)</h2>
+                <h2 id="windows">Windows laptops</h2>
                 <ol>
-                    <li><strong>Hold down the <kbd class="px-1 py-0.5 bg-gray-100 border rounded text-sm">Option</kbd> key</strong> on your keyboard.</li>
-                    <li>While holding <kbd class="px-1 py-0.5 bg-gray-100 border rounded text-sm">Option</kbd>, click the <strong>Apple icon</strong> () in the top-left corner.</li>
-                    <li>Click <strong>"System Information..."</strong> (it will be the first item).</li>
-                    <li>A new window will open. On the left side, under the "Hardware" section, click <strong>"Power"</strong>.</li>
-                    <li>Take a screenshot of this "Power" screen. We need to see the <strong>"Health Information"</strong> section, which shows the <strong>"Cycle Count"</strong> and <strong>"Condition"</strong>.</li>
+                    <li>Press the <kbd>Windows</kbd> key and <kbd>R</kbd> at the same time. A small "Run" box opens.</li>
+                    <li>Copy this line, paste it into the box, and press <kbd>Enter</kbd>:
+                        <div class="cmd">
+                            <code id="wincmd">cmd /c powercfg /batteryreport /output "%TEMP%\battery-report.html" &amp;&amp; start "" "%TEMP%\battery-report.html"</code>
+                            <button type="button" class="copy" data-copy="wincmd">Copy</button>
+                        </div>
+                        A black window may flash for a second. That's normal.
+                    </li>
+                    <li>Your battery report opens in your web browser automatically.</li>
+                    <li>Scroll to <strong>"Installed batteries"</strong> and take a screenshot of it (press <kbd>Windows</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>). We need the <strong>Design Capacity</strong>, <strong>Full Charge Capacity</strong>, and <strong>Cycle Count</strong> lines.</li>
                 </ol>
-                <img src="https://placehold.co/600x400/dbeafe/1e40af?text=Example+of+Mac+Power+Info" alt="Example of Mac System Information Power Menu">
+
+                <p class="example-label">What you're looking for (example):</p>
+                <div class="example win" role="img" aria-label="Example battery report: Design capacity 90,000 mWh, full charge capacity 81,450 mWh, cycle count 142">
+                    <div class="win-title">Installed batteries</div>
+                    <table>
+                        <tr><td>NAME</td><td>ASUS Battery</td></tr>
+                        <tr><td>MANUFACTURER</td><td>ASUSTeK</td></tr>
+                        <tr><td>CHEMISTRY</td><td>LIon</td></tr>
+                        <tr class="hl"><td>DESIGN CAPACITY</td><td>90,000 mWh</td></tr>
+                        <tr class="hl"><td>FULL CHARGE CAPACITY</td><td>81,450 mWh</td></tr>
+                        <tr class="hl"><td>CYCLE COUNT</td><td>142</td></tr>
+                    </table>
+                </div>
+                <p class="note">In this example the battery holds 81,450 of its original 90,000 mWh, which is <strong>90.5% health</strong>.</p>
+
+                <h2 id="mac">MacBooks</h2>
+                <p><strong>Quick check:</strong> open <strong>System Settings &gt; Battery</strong> and click the <strong>ⓘ</strong> next to <strong>Battery Health</strong>. Screenshot the <strong>Maximum Capacity</strong> percentage.</p>
+                <p><strong>For the cycle count too:</strong></p>
+                <ol>
+                    <li>Hold the <kbd>Option</kbd> key and click the <strong>Apple menu</strong> (the apple logo in the top-left corner).</li>
+                    <li>Click <strong>System Information</strong> (the first item in the menu).</li>
+                    <li>On the left, under <strong>Hardware</strong>, click <strong>Power</strong>.</li>
+                    <li>Screenshot the <strong>Health Information</strong> section (press <kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>4</kbd> and drag around it).</li>
+                </ol>
+
+                <p class="example-label">What you're looking for (example):</p>
+                <div class="example mac" role="img" aria-label="Example Mac battery health information: cycle count 214, condition normal, maximum capacity 88%">
+                    <div class="mac-bar"><span></span><span></span><span></span></div>
+                    <div class="mac-body">
+                        <div class="mac-head">Health Information:</div>
+                        <div class="mac-row hl"><span>Cycle Count:</span><span>214</span></div>
+                        <div class="mac-row hl"><span>Condition:</span><span>Normal</span></div>
+                        <div class="mac-row hl"><span>Maximum Capacity:</span><span>88%</span></div>
+                    </div>
+                </div>
+
+                <h2 id="iphone">iPhones and iPads</h2>
+                <ol>
+                    <li>Open <strong>Settings &gt; Battery &gt; Battery Health</strong> (on some versions it's <strong>Battery Health &amp; Charging</strong>).</li>
+                    <li>Screenshot the screen showing <strong>Maximum Capacity</strong>. Newer models also show the cycle count under <strong>Settings &gt; General &gt; About</strong>.</li>
+                </ol>
+
+                <h2 id="check">What your numbers mean</h2>
+                <p>Battery health is the full charge capacity divided by the design capacity. Batteries naturally wear down over time:</p>
+                <ul class="scale">
+                    <li><span class="dot good"></span><span><strong>80% or higher:</strong> healthy. No change to your offer.</span></li>
+                    <li><span class="dot mid"></span><span><strong>70–79%:</strong> worn. The offer is a little lower because we'll likely replace it.</span></li>
+                    <li><span class="dot bad"></span><span><strong>Below 70%, or "Service Recommended":</strong> needs a new battery. We'll factor that into your offer. We still buy it.</span></li>
+                </ul>
+
+                <div class="calc" aria-labelledby="calc-title">
+                    <h3 id="calc-title">Work out your battery health (Windows)</h3>
+                    <div class="calc-row">
+                        <label>Design capacity (mWh)<input id="design" type="number" inputmode="numeric" placeholder="e.g. 90000"></label>
+                        <label>Full charge capacity (mWh)<input id="full" type="number" inputmode="numeric" placeholder="e.g. 81450"></label>
+                    </div>
+                    <p id="result" class="result" aria-live="polite">Enter both numbers to see your battery health.</p>
+                </div>
+
+                <h2>Send it to us</h2>
+                <p>Reply to your offer email with the screenshot, or email it to <a href="mailto:quotes@masyllc.com" class="text-blue-600 hover:underline">quotes@masyllc.com</a> with your laptop model. Haven't requested an offer yet? <a href="index.html#quote-form" class="text-blue-600 hover:underline">Get your free offer</a> first.</p>
             </div>
         </div>
     </main>
@@ -178,6 +271,8 @@
                         <li><a href="index.html#what-we-buy" class="text-base text-gray-500 hover:text-gray-900">What We Buy</a></li>
                         <li><a href="index.html#prepare" class="text-base text-gray-500 hover:text-gray-900">Prepare Your Device</a></li>
                         <li><a href="index.html#faq" class="text-base text-gray-500 hover:text-gray-900">FAQ</a></li>
+                        <li><a href="specs.html" class="text-base text-gray-500 hover:text-gray-900">Find Your Specs</a></li>
+                        <li><a href="packdevice.html" class="text-base text-gray-500 hover:text-gray-900">Packing Guide</a></li>
                     </ul>
                 </div>
                 <!-- Contact -->
@@ -199,5 +294,26 @@
         </div>
     </footer>
 
+    <script>
+    (function () {
+        document.querySelectorAll('.copy').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var text = document.getElementById(btn.dataset.copy).textContent;
+                var done = function () { btn.textContent = 'Copied!'; setTimeout(function () { btn.textContent = 'Copy'; }, 2000); };
+                if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () {});
+            });
+        });
+        var d = document.getElementById('design'), f = document.getElementById('full'), r = document.getElementById('result');
+        function calc() {
+            var dv = parseFloat(d.value), fv = parseFloat(f.value);
+            if (!(dv > 0 && fv > 0)) { r.textContent = 'Enter both numbers to see your battery health.'; r.style.color = ''; return; }
+            var pct = fv / dv * 100;
+            var msg = pct >= 80 ? 'Healthy.' : pct >= 70 ? 'Worn, but fine to sell.' : 'Likely needs a new battery. We still buy it.';
+            r.textContent = 'Your battery health: ' + pct.toFixed(1) + '%. ' + msg;
+            r.style.color = pct >= 80 ? '#15803d' : pct >= 70 ? '#b45309' : '#b91c1c';
+        }
+        d.addEventListener('input', calc); f.addEventListener('input', calc);
+    })();
+    </script>
 </body>
 </html>
