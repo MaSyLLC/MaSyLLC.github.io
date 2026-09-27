@@ -126,7 +126,7 @@
         
         <div class="bg-gray-50 pb-16">
             <div class="help-content bg-white shadow-xl rounded-lg -mt-16">
-                <p class="warning"><strong>CRITICAL: We cannot buy devices that are locked to your personal account (iCloud, Google, or Samsung).</strong> Following these steps is required to complete the sale.</p>
+                <p class="warning"><strong>CRITICAL: We cannot buy devices that are locked to your personal account (Microsoft, iCloud, Google, or Samsung) or protected by a BIOS password.</strong> Following these steps is required to complete the sale.</p>
 
                 <h2>Step 1: Back Up Your Data</h2>
                 <p>Once we receive your device, all data will be securely and permanently erased. Please save any photos, files, or contacts you want to keep.</p>
@@ -136,8 +136,16 @@
                 </ul>
 
                 <h2>Step 2: Sign Out of Your Accounts (The Most Important Step)</h2>
-                <p>You MUST sign out of your accounts *before* you reset the device. This removes the anti-theft lock.</p>
+                <p>You MUST sign out of your accounts <em>before</em> you reset the device. This removes the anti-theft lock.</p>
                 
+                <h3>For Windows Laptops and PCs (Microsoft account):</h3>
+                <ol>
+                    <li>Go to <code>Settings > Privacy &amp; security > Find my device</code> and turn it <strong>Off</strong>.</li>
+                    <li>Go to <code>Settings > Accounts > Your info</code> and choose <code>Sign in with a local account instead</code>.</li>
+                    <li>Visit <code>account.microsoft.com/devices</code>, find this computer, and choose <code>Remove device</code>.</li>
+                    <li>If you set a BIOS/UEFI password, remove it (or tell us the password).</li>
+                </ol>
+
                 <h3>For iPhones, iPads, and MacBooks (iCloud):</h3>
                 <ol>
                     <li>Go to <code>Settings > [Your Name]</code>.</li>
@@ -231,7 +239,7 @@
                 </div>
             </div>
             <div class="mt-12 border-t border-gray-200 pt-8 text-center">
-                <p class="text-base text-gray-400">&copy; 2025 MaSyLLC. All rights reserved.</p>
+                <p class="text-base text-gray-400">&copy; 2026 MaSyLLC. All rights reserved.</p>
             </div>
         </div>
     </footer>

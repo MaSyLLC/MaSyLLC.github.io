@@ -11,21 +11,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <script>
-        // Optional: Smooth scroll for anchor links
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+    <meta name="description" content="Sell your used laptop, gaming PC, MacBook, tablet, or phone for cash. Free offer within hours, locked for 14 days, free insured shipping, and same-day payment by PayPal, Venmo, or Zelle.">
+    <meta property="og:title" content="MaSyLLC Buyback - Get Cash for Your Tech">
+    <meta property="og:description" content="Free offer within hours. Free insured shipping. Paid the same day we inspect.">
+    <meta property="og:url" content="https://www.masyllc.com/">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
     
     <style>
+        html { scroll-behavior: smooth; }
+        section[id], div[id='quote-form'] { scroll-margin-top: 5rem; }
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -68,52 +63,53 @@
     <main class="overflow-hidden">
         <div id="quote-form" class="bg-white pt-16 pb-24 sm:pt-24 sm:pb-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                     
                     <!-- Left: Value Proposition (UPDATED FOCUS) -->
-                    <div>
+                    <div class="lg:sticky lg:top-32">
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
                             Turn Your Laptop or Gaming PC Into <span class="text-blue-600">Fast Cash</span>.
                         </h1>
                         <p class="mt-6 text-xl text-gray-600">
-                            Stop dealing with Marketplace lowballers and no-shows. Get a fast, fair, and guaranteed offer for your used laptop, gaming PC, and other tech.
+                            Stop dealing with Marketplace lowballers and no-shows. Get a fair cash offer for your used laptop, gaming PC, or other tech, usually within a few hours. No meetups, no haggling.
                         </p>
                         <ul class="mt-8 space-y-3">
                             <li class="flex items-center text-lg text-gray-700">
                                 <svg class="flex-shrink-0 h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
-                                Fair, competitive offers
+                                Offer locked in for 14 days
                             </li>
                             <li class="flex items-center text-lg text-gray-700">
                                 <svg class="flex-shrink-0 h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
-                                100% Free prepaid shipping
+                                Free, insured prepaid shipping label
                             </li>
                             <li class="flex items-center text-lg text-gray-700">
                                 <svg class="flex-shrink-0 h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
-                                Fast payment upon inspection
+                                Paid the same day we inspect: PayPal, Venmo, or Zelle
                             </li>
                         </ul>
                     </div>
 
                     <!-- Right: The Quote Form -->
                     <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-2xl border border-gray-100">
-                        <h2 class="text-3xl font-bold text-gray-900 text-center mb-2">Get a Cash Offer in Hours</h2>
-                        <p class="text-center text-gray-600 mb-8">Fill out the 60-second form below.</p>
+                        <h2 class="text-3xl font-bold text-gray-900 text-center mb-2">Get Your Cash Offer</h2>
+                        <p class="text-center text-gray-600 mb-8">Takes about a minute. We reply by email, usually within a few hours.</p>
                         
-                        <!-- 
-                          NOTE: Formspree link added
-                        -->
-                        <form action="https://formspree.io/f/mwpapojd" method="POST" class="space-y-5">
+                        <form id="quote" action="https://formspree.io/f/mwpapojd" method="POST" class="space-y-5">
+                            <input type="hidden" name="_subject" value="New buyback quote request">
+                            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
                             <div>
                                 <label for="device-type" class="block text-sm font-medium text-gray-700">What are you selling?</label>
                                 <select id="device-type" name="device_type" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" disabled selected>Select a device type...</option>
                                     <option value="laptop">Laptop</option>
+                                    <option value="gaming-laptop">Gaming Laptop</option>
                                     <option value="gaming-pc">Gaming PC (Desktop)</option>
                                     <option value="macbook">Apple MacBook</option>
                                     <option value="all-in-one">All-in-One Computer</option>
@@ -123,33 +119,35 @@
                                 </select>
                             </div>
 
-                            <div>
-                                <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
-                                <select id="brand" name="brand" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" disabled selected>Select a brand...</option>
-                                    <option value="dell">Dell</option>
-                                    <option value="lenovo">Lenovo</option>
-                                    <option value="asus">ASUS</option>
-                                    <option value="razer">Razer</option>
-                                    <option value="hp">HP</option>
-                                    <option value="apple">Apple</option>
-                                    <option value="acer">Acer</option>
-                                    <option value="microsoft">Microsoft</option>
-                                    <option value="samsung">Samsung</option>
-                                    <option value="other">Other</option>
-                                </select>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                                    <select id="brand" name="brand" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="" disabled selected>Select a brand...</option>
+                                        <option value="dell">Dell / Alienware</option>
+                                        <option value="lenovo">Lenovo</option>
+                                        <option value="asus">ASUS</option>
+                                        <option value="razer">Razer</option>
+                                        <option value="hp">HP</option>
+                                        <option value="apple">Apple</option>
+                                        <option value="acer">Acer</option>
+                                        <option value="msi">MSI</option>
+                                        <option value="microsoft">Microsoft</option>
+                                        <option value="samsung">Samsung</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="model" class="block text-sm font-medium text-gray-700">Model</label>
+                                    <input type="text" id="model" name="model" required placeholder="e.g., ROG Strix G16 G614JIR" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
                             </div>
+                            <p class="-mt-2 text-xs text-gray-500">Tip: the exact model number is usually on a sticker under the laptop.</p>
 
-                            <div>
-                                <label for="model" class="block text-sm font-medium text-gray-700">Model</label>
-                                <input type="text" id="model" name="model" required placeholder="e.g., XPS 15 9510 or MacBook Pro 14-inch" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-
-                            <!-- NEW: Hardware Specs Section -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label for="cpu" class="block text-sm font-medium text-gray-700">Processor (CPU)</label>
-                                    <input type="text" id="cpu" name="cpu" placeholder="e.g., Intel i7, M2 Max" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <input type="text" id="cpu" name="cpu" placeholder="e.g., Intel i9-14900HX, M2 Pro" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
                                     <label for="ram" class="block text-sm font-medium text-gray-700">RAM (Memory)</label>
@@ -167,37 +165,79 @@
                             <div class="mt-1">
                                 <a href="specs.html" target="_blank" class="text-sm text-blue-600 hover:text-blue-800 hover:underline">Not sure how to find these specs? Click here for a quick guide.</a>
                             </div>
-                            <!-- END NEW SECTION -->
+
+                            <fieldset>
+                                <legend class="block text-sm font-medium text-gray-700">Condition <span class="font-normal text-gray-500">(be honest, it keeps your price locked)</span></legend>
+                                <div class="mt-2 space-y-2">
+                                    <label class="flex items-start gap-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
+                                        <input type="radio" name="condition" value="Excellent - like new" required class="mt-1 text-blue-600 focus:ring-blue-500">
+                                        <span><span class="font-semibold text-gray-900">Excellent</span><span class="block text-sm text-gray-600">Looks like new. No scratches you can see from arm's length, screen is flawless, everything works.</span></span>
+                                    </label>
+                                    <label class="flex items-start gap-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
+                                        <input type="radio" name="condition" value="Good - light wear" class="mt-1 text-blue-600 focus:ring-blue-500">
+                                        <span><span class="font-semibold text-gray-900">Good</span><span class="block text-sm text-gray-600">Light scratches or scuffs, a little shine on the keys. Screen is clean when on. Everything works.</span></span>
+                                    </label>
+                                    <label class="flex items-start gap-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
+                                        <input type="radio" name="condition" value="Fair - heavy wear, works" class="mt-1 text-blue-600 focus:ring-blue-500">
+                                        <span><span class="font-semibold text-gray-900">Fair</span><span class="block text-sm text-gray-600">Obvious wear: deeper scratches, small dents, worn keys or touchpad. Everything still works.</span></span>
+                                    </label>
+                                    <label class="flex items-start gap-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
+                                        <input type="radio" name="condition" value="Has issues - something doesn't work" class="mt-1 text-blue-600 focus:ring-blue-500">
+                                        <span><span class="font-semibold text-gray-900">Has issues</span><span class="block text-sm text-gray-600">Turns on, but something isn't right: cracked screen, weak battery, dead keys or ports, etc.</span></span>
+                                    </label>
+                                    <label class="flex items-start gap-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50">
+                                        <input type="radio" name="condition" value="For parts - doesn't turn on" class="mt-1 text-blue-600 focus:ring-blue-500">
+                                        <span><span class="font-semibold text-gray-900">For parts</span><span class="block text-sm text-gray-600">Doesn't turn on, or has major damage. We still buy these.</span></span>
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend class="block text-sm font-medium text-gray-700">What's included?</legend>
+                                <div class="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+                                    <label class="flex items-center gap-2 text-gray-700"><input type="checkbox" name="charger_included" value="Yes" class="rounded text-blue-600 focus:ring-blue-500"> Original charger</label>
+                                    <label class="flex items-center gap-2 text-gray-700"><input type="checkbox" name="box_included" value="Yes" class="rounded text-blue-600 focus:ring-blue-500"> Original box</label>
+                                </div>
+                            </fieldset>
 
                             <div>
-                                <label for="condition" class="block text-sm font-medium text-gray-700">Condition</label>
-                                <select id="condition" name="condition" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" disabled selected>Select condition...</option>
-                                    <option value="like-new">Like New (Flawless, works perfectly)</option>
-                                    <option value="good">Good (Light scratches, works perfectly)</option>
-                                    <option value="fair">Fair (Visible wear or dents, works)</option>
-                                    <option value="damaged">Damaged / For Parts (Cracked, doesn't turn on, etc.)</option>
-                                </select>
+                                <label for="notes" class="block text-sm font-medium text-gray-700">Anything we should know? <span class="font-normal text-gray-500">(optional)</span></label>
+                                <textarea id="notes" name="notes" rows="2" placeholder="e.g., small dent on the lid, battery lasts 2 hours, warranty until 2028" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
                             </div>
 
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Where should we send your quote?</label>
-                                <input type="email" id="email" name="email" required placeholder="you@example.com" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700">First name</label>
+                                    <input type="text" id="name" name="name" required autocomplete="given-name" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Email for your offer</label>
+                                    <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
                             </div>
+
+                            <div id="form-error" class="hidden p-3 rounded-lg bg-red-50 text-red-700 text-sm" role="alert"></div>
 
                             <div>
                                 <button type="submit" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
-                                    Get My Free Quote
+                                    Get My Free Offer
                                 </button>
                             </div>
                         </form>
-                        <p class="text-center text-xs text-gray-500 mt-4">
-                            We'll *only* use your email to send your quote. No spam, ever.
+
+                        <div id="form-success" class="hidden text-center py-8" role="status" tabindex="-1">
+                            <div class="mx-auto flex items-center justify-center h-14 w-14 rounded-full bg-green-100 text-green-600">
+                                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            </div>
+                            <h3 class="mt-4 text-2xl font-bold text-gray-900">Got it! Your offer is on the way.</h3>
+                            <p class="mt-2 text-gray-600">We'll email your offer to <strong id="sent-to">you</strong>, usually within a few hours. Look for an email from <strong>quotes@masyllc.com</strong> (and check your spam folder, just in case).</p>
+                            <p class="mt-4 text-sm text-gray-500">Want to speed things up? Reply to our email with 4 photos: the lid, keyboard, screen turned on, and bottom.</p>
+                        </div>
+
+                        <p id="form-fineprint" class="text-center text-xs text-gray-500 mt-4">
+                            No obligation. We only use your email to send your offer. No spam, ever.
                         </p>
-                        <!-- Added "Step 2" disclaimer -->
-                        <p class="text-center text-xs text-gray-500 mt-2">
-                            P.S. This form gets you a preliminary offer. We'll email you to confirm a few more details for your final, locked-in price!
-                        </p>
+
                     </div>
 
                 </div>
@@ -241,7 +281,7 @@
                             </svg>
                         </div>
                         <h3 class="mt-6 text-2xl font-bold text-gray-900">1. Get Your Quote</h3>
-                        <p class="mt-2 text-lg text-gray-600">Fill out our simple form. We'll email you a fair, no-obligation offer within hours.</p>
+                        <p class="mt-2 text-lg text-gray-600">Fill out the form. We check what your exact model is selling for and email you a no-obligation offer, usually within a few hours.</p>
                     </div>
                     <!-- Step 2 (Upgraded Text) -->
                     <div class="text-center">
@@ -252,7 +292,7 @@
                             </svg>
                         </div>
                         <h3 class="mt-6 text-2xl font-bold text-gray-900">2. Ship It Free</h3>
-                        <p class="mt-2 text-lg text-gray-600">Accept the offer? We'll email a prepaid QR code or label. We even send free shipping kits for high-value items.</p>
+                        <p class="mt-2 text-lg text-gray-600">Like the offer? Reply with your address and we'll email a free, insured prepaid label. Your offer stays locked for 14 days.</p>
                     </div>
                     <!-- Step 3 -->
                     <div class="text-center">
@@ -262,7 +302,7 @@
                             </svg>
                         </div>
                         <h3 class="mt-6 text-2xl font-bold text-gray-900">3. Get Paid Fast</h3>
-                        <p class="mt-2 text-lg text-gray-600">Once we get and inspect your device, we send your payment *immediately* via PayPal, Venmo, or Zelle.</p>
+                        <p class="mt-2 text-lg text-gray-600">We inspect within 1–2 business days of arrival and pay you the same day by PayPal, Venmo, or Zelle.</p>
                     </div>
                 </div>
             </div>
@@ -320,7 +360,7 @@
                     <h2 class="text-lg font-semibold text-blue-600">One More Thing...</h2>
                     <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">How to Prepare Your Device</p>
                     <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-                        Please follow these steps *before* you ship. We cannot buy devices that are locked to a personal account.
+                        Please follow these steps <em>before</em> you ship. We cannot buy devices that are locked to a personal account.
                     </p>
                 </div>
                 <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -342,7 +382,7 @@
                             </svg>
                         </div>
                         <h3 class="mt-6 text-2xl font-bold text-gray-900">2. Sign Out of All Accounts</h3>
-                        <p class="mt-2 text-lg text-gray-600">This is the most important step! Please sign out of your **iCloud (Apple ID), Google, or Samsung account**.</p>
+                        <p class="mt-2 text-lg text-gray-600">This is the most important step! Sign out of your <strong>Microsoft account</strong> on Windows, or turn off <strong>Find My</strong> and sign out of <strong>iCloud</strong> on a Mac. On phones and tablets, sign out of your <strong>Apple ID, Google, or Samsung account</strong>. <a href="prepare.html" class="text-blue-600 hover:underline">Step-by-step guide</a></p>
                     </div>
                     <!-- Step 3 -->
                     <div class="text-center">
@@ -364,33 +404,30 @@
         <section id="testimonials" class="bg-gray-50 py-16 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-lg font-semibold text-blue-600">Don't Just Take Our Word For It</h2>
-                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Real Reviews From Happy Sellers</p>
+                    <h2 class="text-lg font-semibold text-blue-600">Recent Sellers</h2>
+                    <p class="mt-2 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Real people who sold their tech to us</p>
                 </div>
-                <!-- Real Testimonials -->
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Testimonial 1 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <p class="text-lg text-gray-700">"This was 10x easier than Facebook Marketplace. I got a fair quote, shipped it for free, and got paid the same day they received it. So simple."</p>
-                        <div class="mt-6">
+                <!-- Only add a quote here when the customer wrote it themselves and said it's OK to post. -->
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
+                        <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center">R</div>
+                        <div>
                             <div class="font-bold text-gray-900">Ray F.</div>
-                            <div class="text-gray-500 text-sm">Sold a Gaming Laptop</div>
+                            <div class="text-gray-500 text-sm">Sold a gaming laptop</div>
                         </div>
                     </div>
-                    <!-- Testimonial 2 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <p class="text-lg text-gray-700">"I was skeptical at first, but the process was completely transparent. The payment was exactly what they quoted. Highly recommend."</p>
-                        <div class="mt-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
+                        <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center">M</div>
+                        <div>
                             <div class="font-bold text-gray-900">Mohammad S.</div>
-                            <div class="text-gray-500 text-sm">Sold a Gaming Laptop</div>
+                            <div class="text-gray-500 text-sm">Sold a gaming laptop</div>
                         </div>
                     </div>
-                    <!-- Testimonial 3 -->
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <p class="text-lg text-gray-700">"My laptop was just sitting in a drawer. I filled out the form, got an offer in an hour, and had cash in my PayPal two days later. Incredible."</p>
-                        <div class="mt-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center gap-4">
+                        <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center">M</div>
+                        <div>
                             <div class="font-bold text-gray-900">Miles G.</div>
-                            <div class="text-gray-500 text-sm">Sold a Laptop</div>
+                            <div class="text-gray-500 text-sm">Sold a laptop</div>
                         </div>
                     </div>
                 </div>
@@ -425,7 +462,27 @@
                     <!-- FAQ Item -->
                     <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
                         <h3 class="text-xl font-bold text-gray-900">How long does it take to get paid?</h3>
-                        <p class="mt-2 text-gray-700">Once we receive your device, we inspect it within 1-2 business days. As soon as inspection is complete and matches your description, we send your payment immediately via PayPal, Venmo, or Zelle.</p>
+                        <p class="mt-2 text-gray-700">Once we receive your device, we inspect it within 1-2 business days. If it matches your description, we pay you the same day by PayPal, Venmo, or Zelle.</p>
+                    </div>
+                  <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900">How long is my offer good for?</h3>
+                        <p class="mt-2 text-gray-700">14 days. Ship it within that window and, as long as the condition matches, that's what we pay.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900">What if it's lost or damaged in shipping?</h3>
+                        <p class="mt-2 text-gray-700">Every label we send is prepaid and insured. If something happens in transit, that's on us, not you. Follow our <a href="packdevice.html" class="text-blue-600 hover:underline">packing guide</a> to keep it safe.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900">Do I need to include the charger?</h3>
+                        <p class="mt-2 text-gray-700">Please do. Offers assume the original charger is included. If you don't have it, just tell us and we'll adjust the offer up front.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900">Do you buy damaged or broken devices?</h3>
+                        <p class="mt-2 text-gray-700">Yes. Cracked screens, weak batteries, even laptops that won't turn on. Pick "Has issues" or "For parts" on the form and tell us what's wrong.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900">Is there anything you can't buy?</h3>
+                        <p class="mt-2 text-gray-700">We can't buy devices that are still locked to someone's account (iCloud, Microsoft, Google), have a BIOS password we can't remove, or are reported lost or stolen.</p>
                     </div>
                 </div>
             </div>
@@ -534,6 +591,7 @@
                         <li class="text-base text-gray-500">
                             Email: <a href="mailto:quotes@masyllc.com" class="hover:text-gray-900">quotes@masyllc.com</a>
                         </li>
+                        <li class="text-base text-gray-500">We usually reply within a few hours.</li>
                         <li class="text-base text-gray-500">
                             <!-- Make sure this is a real, legitimate address (even a PO Box) -->
                             Kulpsville, PA 19443
@@ -543,10 +601,38 @@
             </div>
             <div class="mt-12 border-t border-gray-200 pt-8 text-center">
                 <!-- NOTE: Privacy policy link added here -->
-                <p class="text-base text-gray-400">&copy; 2025 MaSyLLC. All rights reserved. <span class="mx-2">|</span> <a href="privacy-policy.html" class="hover:text-gray-600">Privacy Policy</a></p>
+                <p class="text-base text-gray-400">&copy; 2026 MaSyLLC. All rights reserved. <span class="mx-2">|</span> <a href="privacy-policy.html" class="hover:text-gray-600">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
 
+    <script>
+    // Submit the quote form without leaving the page.
+    (function () {
+        var form = document.getElementById('quote');
+        if (!form || !window.fetch) return;
+        var err = document.getElementById('form-error');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true; btn.textContent = 'Sending...';
+            err.classList.add('hidden');
+            fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+                .then(function (r) {
+                    if (!r.ok) throw new Error();
+                    document.getElementById('sent-to').textContent = form.email.value;
+                    form.classList.add('hidden');
+                    document.getElementById('form-fineprint').classList.add('hidden');
+                    var ok = document.getElementById('form-success');
+                    ok.classList.remove('hidden'); ok.focus();
+                })
+                .catch(function () {
+                    err.textContent = "Sorry, that didn't go through. Please try again, or email your device details to quotes@masyllc.com.";
+                    err.classList.remove('hidden');
+                    btn.disabled = false; btn.textContent = 'Get My Free Offer';
+                });
+        });
+    })();
+    </script>
 </body>
 </html>
